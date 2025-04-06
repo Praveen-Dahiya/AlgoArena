@@ -1,0 +1,27 @@
+/* App.css */
+
+.App {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f9fafb;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  main.container {
+    flex: 1;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+  
+  /* Typography */
+  h1, h2, h3, h4, h5 {
+    color: #333;
+  }
+  
+  /* Responsive improvements */
+  @media (max-width: 768px) {
+    main.container {
+      padding: 1rem;
+    }
+  }

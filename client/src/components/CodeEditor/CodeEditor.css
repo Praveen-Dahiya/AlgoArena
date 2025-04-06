@@ -1,0 +1,37 @@
+/* CodeEditor.css */
+
+.code-editor-container {
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+  }
+  
+  .editor-header {
+    background-color: #f8f9fa;
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #dee2e6;
+  }
+  
+  .language-selector select {
+    width: 100px;
+  }
+  
+  .editor-actions button {
+    min-width: 100px;
+  }
+  
+  @media (max-width: 768px) {
+    .editor-header {
+      flex-direction: column;
+      gap: 0.5rem;
+      align-items: stretch;
+    }
+  
+    .editor-actions {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+    }
+  }
