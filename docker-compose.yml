@@ -1,0 +1,58 @@
+# Sample docer-compose.yml file,not used in the project
+# This is a Docker Compose file for the AlgoArena project.
+version: '3'
+
+services:
+  # MongoDB service
+  mongo:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+    restart: unless-stopped
+
+  # Backend API service
+  api:
+    build: ./server
+    ports:
+      - "5000:5000"
+    depends_on:
+      - mongo
+    environment:
+      - NODE_ENV=development
+      - MONGODB_URI=mongodb://mongo:27017/algoArena
+    volumes:
+      - ./server:/app
+      - /app/node_modules
+    restart: unless-stopped
+
+  # Frontend client service
+  client:
+    build: ./client
+    ports:
+      - "3000:3000"
+    depends_on:
+      - api
+    environment:
+      - REACT_APP_API_URL=http://localhost:5000/api
+    volumes:
+      - ./client:/app
+      - /app/node_modules
+    restart: unless-stopped
+
+  # C++ execution environment
+  cpp-execution:
+    build:
+      context: ./docker/cpp
+      dockerfile: Dockerfile
+    image: cpp-execution
+    restart: "no"
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 512M
+
+volumes:
+  mongo-data:

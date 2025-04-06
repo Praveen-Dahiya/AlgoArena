@@ -1,0 +1,27 @@
+# Node.js
+node_modules/
+.env
+
+# Build
+dist/
+build/
+
+# Logs
+logs/
+*.log
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# Client-specific
+client/node_modules/
+client/.env
+client/dist/
+client/build/
+
+# Server-specific
+server/node_modules/
+server/.env
+server/dist/
+server/build/
